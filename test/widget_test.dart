@@ -1,0 +1,62 @@
+// This is a basic Flutter widget test.
+//
+// To perform an interaction with a widget in your test, use the WidgetTester
+// utility that Flutter provides. For example, you can send tap and scroll
+// gestures. You can also use WidgetTester to find child widgets in the widget
+// tree, read text, and verify that the values of widget properties are correct.
+
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:test_bloc/api/provider/api_services.dart';
+// import 'package:test_bloc/api/repository/api_article_repository.dart';
+
+import 'package:test_bloc/main.dart';
+import 'package:test_bloc/models/article.dart' as article;
+import 'package:test_bloc/models/articles.dart';
+import '../lib/map_page.dart';
+
+Future<String> createOrderMessage() async {
+  var order = await fetchUserOrder();
+  return 'Your order is: $order';
+}
+
+Future<String> fetchUserOrder() => Future.delayed(
+      Duration(seconds: 2),
+      () => 'Large Latte',
+    );
+
+// final ApiArticleRepository _articleRepository = ApiArticleRepository();
+
+main() async {
+  // final articles = await getArticles();
+  print('Fetching article ...');
+  print("=============");
+  // print(articles[0].article);
+
+  getAddressFromLatLng();
+
+  // final ApiService apiService = ApiService();
+  // Future<Articles> fetchArticles() => apiService.getArticles();
+  // Articles articles = await fetchArticles();
+  // print("=============");
+  // print(articles);
+
+  // printOrder();
+  // getArticles();
+  // testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+  //   // Build our app and trigger a frame.
+  //   await tester.pumpWidget(MyApp());
+
+  //   // Verify that our counter starts at 0.
+  //   expect(find.text('0'), findsOneWidget);
+  //   expect(find.text('1'), findsNothing);
+
+  //   // Tap the '+' icon and trigger a frame.
+  //   await tester.tap(find.byIcon(Icons.add));
+  //   await tester.pump();
+
+  //   // Verify that our counter has incremented.
+  //   expect(find.text('0'), findsNothing);
+  //   expect(find.text('1'), findsOneWidget);
+  // });
+}
